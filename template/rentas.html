@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block title %}Rentas{% endblock %}
+{% block body %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Rentas</h1>
+    <a class="btn btn-success" href="/add_renta">Agregar Renta</a>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Libro</th>
+                <th>Cantidad</th>
+                <th>Fecha de Renta</th>
+                <th>Fecha de Devolución</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for renta in rentas %}
+            <tr>
+                <td>{{ renta[0] }}</td>
+                <td>{{ renta[1] }}</td>
+                <td>{{ renta[2] }}</td>
+                <td>{{ renta[3] }}</td>
+                <td>{{ renta[4] }}</td>
+                <td>{{ renta[5] }}</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" href="/edit_renta/{{ renta[0] }}">Editar</a>
+                    <a class="btn btn-sm btn-danger" href="/delete_renta/{{ renta[0] }}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
