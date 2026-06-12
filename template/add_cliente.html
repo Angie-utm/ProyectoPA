@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block title %}Agregar Cliente{% endblock %}
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Agregar Cliente</h3>
+                <form action="/add_cliente" method="POST">
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="nombre" placeholder="Nombre">
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="telefono" placeholder="Teléfono">
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control" type="email" name="correo" placeholder="Correo Electrónico">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Agregar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

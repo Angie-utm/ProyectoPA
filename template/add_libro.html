@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block title %}Agregar Libro{% endblock %}
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Agregar Libro</h3>
+                <form action="/add_libro" method="POST">
+                    <div class="mb-3">
+                        <label for="titulo" class="form-label">Título:</label>
+                        <input class="form-control" type="text" id="titulo" name="titulo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="autor" class="form-label">Autor:</label>
+                        <input class="form-control" type="text" id="autor" name="autor" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categorias" class="form-label">Categoría:</label>
+                        <select class="form-select" id="categorias" name="categorias" required>
+                            <option value="">Seleccione una categoría</option>
+                            {% for categorias in categorias %}
+                                <option value="{{ categorias[0] }}">{{ categorias[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Agregar Libro</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

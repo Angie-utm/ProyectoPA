@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block title %}Agregar Renta{% endblock %}
+{% block body %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Agregar Renta de libro</h3>
+                <form action="/add_renta" method="POST">
+                    <div class="mb-3">
+                        <label for="cliente" class="form-label">Cliente:</label>
+                        <select class="form-select" id="cliente" name="cliente" required>
+                            <option value="">Seleccione un cliente</option>
+                            {% for cliente in clientes %}
+                                <option value="{{ cliente[0] }}">{{ cliente[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="libro" class="form-label">Libro:</label>
+                        <select class="form-select" id="libro" name="libro" required>
+                            <option value="">Seleccione un libro</option>
+                            {% for libro in libros %}
+                                <option value="{{ libro[0] }}">{{ libro[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cantidad" class="form-label">Cantidad:</label>
+                        <input class="form-control" type="text" name="cantidad" placeholder="Cantidad">
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha_renta" class="form-label">Fecha de Renta:</label>
+                        <input class="form-control" type="date" name="fecha_renta" placeholder="Fecha de renta">
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha_devolucion" class="form-label">Fecha de Devolución:</label>
+                        <input class="form-control" type="date" name="fecha_devolucion" placeholder="Fecha de devolución">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Agregar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
